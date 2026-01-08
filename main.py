@@ -145,7 +145,7 @@ plt.title('Accuracy per Epoch')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.legend()
-
+   
 plt.subplot(1, 2, 2)
 plt.plot(history.history['loss'], label='Train Loss')
 plt.plot(history.history['val_loss'], label='Validation Loss')
