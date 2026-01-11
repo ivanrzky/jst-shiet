@@ -162,24 +162,24 @@ def main():
         # Prediction Section
         st.subheader("🔮 Prediction")
         max_idx = len(x_test) - 1
+        
+        # Initialize test_idx in session state
+        if 'test_idx' not in st.session_state:
+            st.session_state.test_idx = 0
+        
+        # Random index button
+        if st.button("🎲 Random Index", use_container_width=True):
+            st.session_state.test_idx = np.random.randint(0, max_idx + 1)
+        
         test_idx = st.number_input(
             "Test Image Index", 
             min_value=0, 
             max_value=max_idx, 
-            value=0, 
+            value=st.session_state.test_idx, 
             step=1,
+            key="test_idx",
             help=f"Select an index between 0 and {max_idx}"
         )
-        
-        # Random index button
-        if st.button("🎲 Random Index", use_container_width=True):
-            test_idx = np.random.randint(0, max_idx)
-            st.session_state.random_idx = test_idx
-            st.rerun()
-        
-        if 'random_idx' in st.session_state:
-            test_idx = st.session_state.random_idx
-            del st.session_state.random_idx
         
         predict_button = st.button("🔍 Predict", use_container_width=True, type="secondary")
         
