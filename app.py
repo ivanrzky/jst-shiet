@@ -233,7 +233,7 @@ def main():
         status_text.text("Training completed!")
         
         st.success(f"✅ Training selesai! Test Accuracy: {test_acc:.2%}")
-        st.balloons()
+        # st.balloons()
     
     # ================== RESULTS DISPLAY ==================
     col1, col2 = st.columns([1, 2])
